@@ -1,7 +1,7 @@
 # Multithread BlackJack Simulator
 
 ## Descrizione del progetto
-Questo progetto implementa un simulatore di BlackJack in Java, con supporto multithread per giocatori e banco controllati dal computer.  
+Questo progetto implementa un simulatore di BlackJack in Java, con supporto multithread per giocatori e banco controllato dal computer.  
 Il sistema rispetta le regole classiche del gioco: gestione di assi (1 o 11), blackjack, sballo, puntate e logica del banco.  
 
 Caratteristiche principali:  
@@ -19,8 +19,3 @@ Caratteristiche principali:
 - `Giocatore`: thread che rappresenta un giocatore, gestisce input e mosse.  
 - `Banco`: thread che gestisce il comportamento del banco.  
 - `GameManager`: coordina la partita, i turni e le condizioni di fine gioco.
-
-## Come avviare il progetto
-1. Clonare il repository:
-   ```bash
-   git clone https://github.com/tuo-username/BlackJackSimulator.git
