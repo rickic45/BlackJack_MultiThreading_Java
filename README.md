@@ -116,16 +116,7 @@ java blackjack.gioco.ClientMain
 
 Per più giocatori, apri altri terminali e ripeti il comando.
 
----
 
-## Regole importanti
-
-* Il server deve essere avviato **prima** dei client
-* Ogni client usa un terminale separato
-* I comandi vanno eseguiti sempre dalla cartella `src`
-* Non entrare nella cartella `gioco` per eseguire `java`
-
----
 
 # Avvio del gioco (Windows 10 / 11)
 
@@ -193,6 +184,17 @@ Ripeti per ogni giocatore aggiuntivo.
 
 ---
 
+
+
+## Regole importanti
+
+* Il server deve essere avviato **prima** dei client
+* Ogni client usa un terminale separato
+* I comandi vanno eseguiti sempre dalla cartella `src`
+* Non entrare nella cartella `gioco` per eseguire `java`
+
+---
+  
 ## Problemi comuni
 
 **Errore:**
