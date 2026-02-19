@@ -85,7 +85,7 @@ java blackjack.gioco.ServerMain
 Output atteso:
 
 ```text
-Server started...
+Server avviato...
 ```
 
 Lascia questo terminale **aperto**.
