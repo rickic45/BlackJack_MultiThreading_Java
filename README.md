@@ -1,144 +1,206 @@
-# Multithread BlackJack Simulator
+# Multithread Blackjack Simulator
 
 ## Descrizione del progetto
-Questo progetto implementa un simulatore di BlackJack in Java, con supporto multithread per giocatori e banco controllato dal computer.  
-Il sistema rispetta le regole classiche del gioco: gestione di assi (1 o 11), blackjack, sballo, puntate e logica del banco.  
 
-Caratteristiche principali:  
-- Supporto da 1 a 4 giocatori.  
-- Banco automatico con regole standard.  
-- Thread separati per ogni giocatore e per il banco, con gestione dei turni tramite `GameManager`.  
-- Mazzo sincronizzato per evitare accessi concorrenti non sicuri.  
-- Gestione del denaro dei giocatori, puntate e condizioni di fine partita.  
-- Architettura modulare facilmente estendibile per interfaccia grafica, split, raddoppio o assicurazione.  
+Questo progetto implementa un simulatore di **Blackjack** in Java con architettura **client–server** e supporto **multithread**.
+Ogni giocatore e il banco sono gestiti tramite thread separati, coordinati da una logica centrale di gioco.
+
+Il sistema rispetta le regole classiche del Blackjack:
+
+* gestione degli assi (1 o 11)
+* blackjack naturale
+* sballo
+* puntate
+* logica del banco standard
+
+### Caratteristiche principali
+
+* Supporto da **1 a 4 giocatori**
+* Banco automatico controllato dal sistema
+* Thread dedicati per giocatori e banco
+* Gestione dei turni centralizzata
+* Mazzo sincronizzato per evitare accessi concorrenti
+* Gestione del denaro e condizioni di fine partita
+* Architettura modulare, facilmente estendibile (GUI, split, raddoppio, assicurazione)
+
+---
 
 ## Struttura del progetto
-- `Carta`: rappresenta singole carte con seme e valore.  
-- `Mazzo`: gestisce il mazzo di carte, pesca e mescolamento.  
-- `Mano`: gestisce le carte di un giocatore e calcola il valore della mano.  
-- `Giocatore`: thread che rappresenta un giocatore, gestisce input e mosse.  
-- `Banco`: thread che gestisce il comportamento del banco.  
-- `GameManager`: coordina la partita, i turni e le condizioni di fine gioco.
 
+* `Carta` → rappresenta una singola carta (seme e valore)
+* `Mazzo` → gestisce il mazzo, il mescolamento e la pesca
+* `Mano` → rappresenta la mano di un giocatore e ne calcola il valore
+* `Giocatore` → thread che gestisce le azioni del giocatore
+* `Banco` → thread che gestisce il comportamento del banco
+* `GameManager` → coordina la partita, i turni e la logica di gioco
+* `ServerMain` → avvia il server
+* `ClientMain` → avvia un client (giocatore)
 
-# Come avviare il gioco (Linux)
+---
 
-Il gioco è diviso in due parti:
--Server → gestisce la partita
--Client → rappresenta un giocatore
+# Avvio del gioco (Linux / macOS)
 
-Il server va avviato una sola volta.
-Ogni giocatore avvia un client.
+Il gioco è composto da due parti:
 
-## Cosa serve?
+* **Server** → gestisce la partita
+* **Client** → rappresenta un giocatore
 
--Java installato (versione 8 o più recente)
--Un terminale
+Il server va avviato **una sola volta**.
+Ogni giocatore avvia il proprio client.
 
-Per verificare Java:
+---
+
+## Requisiti
+
+* Java JDK **8 o superiore**
+* Un terminale
+
+Verifica che Java sia installato:
+
+```bash
 java -version
+```
 
-## 1. Compilare il progetto
-Apri il terminale.
-Entra nella cartella src del progetto.
+---
 
+## 1. Compilazione del progetto
+
+Apri il terminale ed entra nella cartella `src` del progetto:
+
+```bash
 cd src
+```
 
-Compila tutti i file:
+Compila tutti i file Java:
 
+```bash
 javac blackjack/gioco/*.java
+```
 
-Se non vedi errori, la compilazione è riuscita.
+Se non vengono mostrati errori, la compilazione è riuscita.
 
-## 2. Avviare il server
-Dal terminale, sempre nella cartella src:
+---
 
+## 2. Avvio del server
+
+Dalla cartella `src`:
+
+```bash
 java blackjack.gioco.ServerMain
+```
 
-Se tutto funziona, vedrai:
+Output atteso:
 
+```text
 Server started...
+```
 
-Lascia questo terminale aperto.
+Lascia questo terminale **aperto**.
 
-## 3. Avviare un client (giocatore)
-Apri un nuovo terminale.
-Entra di nuovo nella cartella src.
+---
 
+## 3. Avvio di un client (giocatore)
+
+Apri un **nuovo terminale**.
+Entra di nuovo nella cartella `src`:
+
+```bash
 cd src
+```
 
 Avvia il client:
 
+```bash
 java blackjack.gioco.ClientMain
+```
 
-Ora il client è collegato al server.
-Per più giocatori, apri altri terminali e ripeti questo comando.
+Per più giocatori, apri altri terminali e ripeti il comando.
+
+---
 
 ## Regole importanti
--Il server deve essere avviato prima dei client
--Ogni client usa un terminale diverso
--Non entrare nella cartella gioco per eseguire i comandi
--I comandi vanno lanciati sempre dalla cartella src
 
-# Come avviare il gioco (Windows 10/11)
+* Il server deve essere avviato **prima** dei client
+* Ogni client usa un terminale separato
+* I comandi vanno eseguiti sempre dalla cartella `src`
+* Non entrare nella cartella `gioco` per eseguire `java`
 
-## 1. Verificare che Java sia installato
-Apri Prompt dei comandi.
-Scrivi:
+---
 
+# Avvio del gioco (Windows 10 / 11)
+
+---
+
+## 1. Verificare Java
+
+Apri **Prompt dei comandi** e scrivi:
+
+```bat
 java -version
+```
 
-Se vedi una versione di Java, va bene.
-Se il comando non viene trovato, devi installare Java prima di continuare.
+Se il comando non viene riconosciuto, installa Java prima di continuare.
+
+---
 
 ## 2. Aprire la cartella del progetto
-Apri Prompt dei comandi.
-Vai nella cartella src del progetto.
+
+Dal Prompt dei comandi, entra nella cartella `src`.
 Esempio:
 
+```bat
 cd C:\Users\NomeUtente\Desktop\blackjack\src
+```
 
-Sostituisci il percorso con quello corretto sul tuo computer.
+---
 
 ## 3. Compilare il progetto
-Sempre nella cartella src, scrivi:
 
+```bat
 javac blackjack\gioco\*.java
+```
 
 Se non compaiono errori, la compilazione è completata.
 
+---
+
 ## 4. Avviare il server
-Dal Prompt dei comandi, nella cartella src:
 
+```bat
 java blackjack.gioco.ServerMain
+```
 
-Se tutto funziona, vedrai:
+Output atteso:
 
+```text
 Server started...
+```
 
-Lascia questa finestra aperta.
+Lascia la finestra aperta.
+
+---
 
 ## 5. Avviare un client (giocatore)
-Apri un nuovo Prompt dei comandi.
-Vai di nuovo nella cartella src:
 
-cd C:\Users\NomeUtente\Desktop\blackjack\src
+Apri un **nuovo Prompt dei comandi**.
+Torna nella cartella `src` e avvia il client:
 
-Avvia il client:
-
+```bat
 java blackjack.gioco.ClientMain
+```
 
-Ora il client è collegato al server.
-Per più giocatori, apri altre finestre e ripeti il comando.
+Ripeti per ogni giocatore aggiuntivo.
 
-## Regole importanti
--Avvia prima il server, poi i client
--Ogni client usa una finestra diversa
--I comandi vanno eseguiti dalla cartella src
--Non entrare nella cartella gioco per eseguire java
+---
 
 ## Problemi comuni
-Errore: Could not find or load main class
-Il comando è stato eseguito dalla cartella sbagliata.
 
-Torna in src e riprova.
+**Errore:**
+
+```text
+Could not find or load main class
+```
+
+**Causa:** il comando `java` è stato eseguito dalla cartella sbagliata.
+
+**Soluzione:** torna nella cartella `src` e riprova.
