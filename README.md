@@ -21,20 +21,13 @@ Il sistema rispetta le regole classiche del Blackjack:
 * Gestione dei turni centralizzata
 * Mazzo sincronizzato per evitare accessi concorrenti
 * Gestione del denaro e condizioni di fine partita
-* Architettura modulare, facilmente estendibile (GUI, split, raddoppio, assicurazione)
-
 ---
 
 ## Struttura del progetto
-
-* `Carta` → rappresenta una singola carta (seme e valore)
-* `Mazzo` → gestisce il mazzo, il mescolamento e la pesca
-* `Mano` → rappresenta la mano di un giocatore e ne calcola il valore
-* `Giocatore` → thread che gestisce le azioni del giocatore
-* `Banco` → thread che gestisce il comportamento del banco
-* `GameManager` → coordina la partita, i turni e la logica di gioco
+* `PlayerHandler` → coordina la partita, i turni e la logica di gioco
 * `ServerMain` → avvia il server
-* `ClientMain` → avvia un client (giocatore)
+* `Client` → avvia un client (giocatore)
+* `Deck` → gestione del mazzo di carte 
 
 ---
 
