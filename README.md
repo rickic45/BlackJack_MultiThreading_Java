@@ -58,10 +58,10 @@ java -version
 
 ## 1. Compilazione del progetto
 
-Apri il terminale ed entra nella cartella `src` del progetto:
+Apri il terminale ed entra nella cartella `java` del progetto:
 
 ```bash
-cd src
+cd src/main/java
 ```
 
 Compila tutti i file Java:
@@ -76,7 +76,7 @@ Se non vengono mostrati errori, la compilazione è riuscita.
 
 ## 2. Avvio del server
 
-Dalla cartella `src`:
+Dalla cartella `java`:
 
 ```bash
 java blackjack.gioco.ServerMain
@@ -85,7 +85,7 @@ java blackjack.gioco.ServerMain
 Output atteso:
 
 ```text
-Server avviato...
+Server Blackjack avviato...
 ```
 
 Lascia questo terminale **aperto**.
@@ -95,16 +95,16 @@ Lascia questo terminale **aperto**.
 ## 3. Avvio di un client (giocatore)
 
 Apri un **nuovo terminale**.
-Entra di nuovo nella cartella `src`:
+Entra di nuovo nella cartella `java`:
 
 ```bash
-cd src
+cd src/main/java
 ```
 
 Avvia il client:
 
 ```bash
-java blackjack.gioco.ClientMain
+java blackjack.gioco.Client
 ```
 
 Per più giocatori, apri altri terminali e ripeti il comando.
@@ -129,11 +129,11 @@ Se il comando non viene riconosciuto, installa Java prima di continuare.
 
 ## 2. Aprire la cartella del progetto
 
-Dal Prompt dei comandi, entra nella cartella `src`.
+Dal Prompt dei comandi, entra nella cartella `java`.
 Esempio:
 
 ```bat
-cd C:\Users\NomeUtente\Desktop\blackjack\src
+cd C:\Users\NomeUtente\Desktop\blackjack\src\main\java
 ```
 
 ---
@@ -157,7 +157,7 @@ java blackjack.gioco.ServerMain
 Output atteso:
 
 ```text
-Server started...
+Server Blackjack avviato...
 ```
 
 Lascia la finestra aperta.
@@ -167,7 +167,7 @@ Lascia la finestra aperta.
 ## 5. Avviare un client (giocatore)
 
 Apri un **nuovo Prompt dei comandi**.
-Torna nella cartella `src` e avvia il client:
+Torna nella cartella `java` e avvia il client:
 
 ```bat
 java blackjack.gioco.ClientMain
@@ -183,7 +183,7 @@ Ripeti per ogni giocatore aggiuntivo.
 
 * Il server deve essere avviato **prima** dei client
 * Ogni client usa un terminale separato
-* I comandi vanno eseguiti sempre dalla cartella `src`
+* I comandi vanno eseguiti sempre dalla cartella `java`
 * Non entrare nella cartella `gioco` per eseguire `java`
 
 ---
@@ -198,4 +198,4 @@ Could not find or load main class
 
 **Causa:** il comando `java` è stato eseguito dalla cartella sbagliata.
 
-**Soluzione:** torna nella cartella `src` e riprova.
+**Soluzione:** torna nella cartella `java` e riprova.
